@@ -3,7 +3,7 @@
 #pragma once
 
 /**
- * 
+ * SingleTon for Log
  */
 class EASYLOG_API LogHolder
 {
@@ -13,6 +13,7 @@ public:
 		static LogHolder instance;
 		return instance;
 	}
+
 private:
 	LogHolder();
 
