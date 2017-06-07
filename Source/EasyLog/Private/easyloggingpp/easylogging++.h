@@ -1419,8 +1419,8 @@ class AbstractRegistry : public base::threading::ThreadSafe {
 template <typename T_Ptr, typename T_Key = const char*>
 class Registry : public AbstractRegistry<T_Ptr, std::map<T_Key, T_Ptr*>> {
  public:
-  typedef typename Registry<T_Ptr, T_Key>::iterator iterator;
-  typedef typename Registry<T_Ptr, T_Key>::const_iterator const_iterator;
+  typedef typename /*Registry<T_Ptr, T_Key>::*/iterator iterator;
+  typedef typename /*Registry<T_Ptr, T_Key>::*/const_iterator const_iterator;
 
   Registry(void) {}
 
@@ -1495,8 +1495,8 @@ class Registry : public AbstractRegistry<T_Ptr, std::map<T_Key, T_Ptr*>> {
 template <typename T_Ptr, typename Pred>
 class RegistryWithPred : public AbstractRegistry<T_Ptr, std::vector<T_Ptr*>> {
  public:
-  typedef typename RegistryWithPred<T_Ptr, Pred>::iterator iterator;
-  typedef typename RegistryWithPred<T_Ptr, Pred>::const_iterator const_iterator;
+  typedef typename /*RegistryWithPred<T_Ptr, Pred>::*/iterator iterator;
+  typedef typename /*RegistryWithPred<T_Ptr, Pred>::*/const_iterator const_iterator;
 
   RegistryWithPred(void) {
   }
