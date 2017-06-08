@@ -4,7 +4,7 @@ using UnrealBuildTool;
 
 public class EasyLog : ModuleRules
 {
-	public EasyLog(TargetInfo Target)
+	public EasyLog(ReadOnlyTargetRules Target) : base(Target)
 	{
 		
 		PublicIncludePaths.AddRange(
