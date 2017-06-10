@@ -16,7 +16,7 @@
 	"Modules": [
 		{
 			"Name": "EasyLog",
-			"Type": "Developer",
+			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
 	]

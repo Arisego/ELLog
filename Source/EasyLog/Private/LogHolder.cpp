@@ -29,14 +29,14 @@ LogHolder::LogHolder()
 {
 	FString t_fsLogPath = FPaths::RootDir();
 	t_fsLogPath += "logs/";
-	//t_fsLogPath += "dlo/gs/";
+	t_fsLogPath += "dlo/gs/";
 
-	//UE_LOG(LogTemp, Log, TEXT("Parent path: %s"), *FPaths::GetPath(FPaths::GetPath(t_fsLogPath)));
+	UE_LOG(LogTemp, Log, TEXT("Parent path: %s"), *FPaths::GetPath(FPaths::GetPath(t_fsLogPath)));
 
 	IPlatformFile& PlatformFile = FPlatformFileManager::Get().GetPlatformFile();
 	if (!PlatformFile.DirectoryExists(*t_fsLogPath))
 	{
-		FPlatformFileManager::Get().GetPlatformFile().CreateDirectory(*t_fsLogPath);
+		FPlatformFileManager::Get().GetPlatformFile().CreateDirectoryTree(*t_fsLogPath);
 
 		if (!PlatformFile.DirectoryExists(*t_fsLogPath))
 		{

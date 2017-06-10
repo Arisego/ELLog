@@ -6,7 +6,9 @@ public class EasyLog : ModuleRules
 {
 	public EasyLog(ReadOnlyTargetRules Target) : base(Target)
 	{
-		
+		//UEBuildConfiguration.bForceEnableExceptions = true;
+		bEnableExceptions = true;
+
 		PublicIncludePaths.AddRange(
 			new string[] {
 				"EasyLog/Public"
