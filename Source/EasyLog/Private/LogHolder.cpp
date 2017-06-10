@@ -61,8 +61,8 @@ LogHolder::~LogHolder()
 
 void LogHolder::LogToFile(FString InString)
 {
-	UE_LOG(LogTemp, Log, TEXT("[LogHolder] LogToFile()"));
-	LOG(INFO) << "[LogHolder] LogToFile(): " << *InString;
+	UE_LOG(LogTemp, Log, TEXT("%s"), *InString);
+	LOG(INFO) << *InString;
 }
 
 void LogHolder::OnRotate(const FString& OldFile, std::size_t FileSize)
