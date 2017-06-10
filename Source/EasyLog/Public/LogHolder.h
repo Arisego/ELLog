@@ -15,7 +15,14 @@ public:
 	}
 
 private:
+	static FString LogPath;
+	static FString LogName;
+
+private:
 	LogHolder();
+
+	/** Check and Generate Log path */
+	static void ReGenLogPath();
 
 public:
 	LogHolder(LogHolder const&) = delete;
@@ -25,4 +32,7 @@ public:
 
 public:
 	void LogToFile(FString InString = "");
+
+	static void OnRotate(const FString& OldFile, std::size_t FileSize);
+
 };
