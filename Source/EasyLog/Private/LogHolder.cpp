@@ -3,12 +3,14 @@
 #include "EasyLog.h"
 #include "LogHolder.h"
 
+#include "EngineMinimal.h"
 #include "Paths.h"
 #include "PlatformFilemanager.h"
 
 #include "AllowWindowsPlatformTypes.h"
 #include "easyloggingpp/easylogging++.h"
 #include "HideWindowsPlatformTypes.h"
+#include "GenericPlatformFile.h"
 
 INITIALIZE_EASYLOGGINGPP
 
@@ -24,7 +26,7 @@ namespace LogHolderNs
 /** Max size before the log file rotate */
 #define MAXLOGSIZE	"102400"
 
-FString LogHolder::LogPath = FPaths::RootDir()+ "logs/dlo/gs/";
+FString LogHolder::LogPath = FPaths::GameDir()+ "logs/";
 FString LogHolder::LogName = el::base::utils::DateTime::getDateTime("%Y%M%d_%H%m%s_%g", &LogHolderNs::DefaultSubSecPre).c_str();
 
 LogHolder::LogHolder()
@@ -66,7 +68,7 @@ void LogHolder::LogToFile(FString InString)
 void LogHolder::OnRotate(const FString& OldFile, std::size_t FileSize)
 {
 	static int idx = 0;
-	
+
 	UE_LOG(LogTemp, Log, TEXT("[LogHolder] LogHolder(): Log file roll: %s, %d reached"), *OldFile, FileSize);
 	FPlatformFileManager::Get().GetPlatformFile().MoveFile(*(LogPath + LogName + "_" + FString::FromInt(idx++) + "_.log"), *OldFile);
 }

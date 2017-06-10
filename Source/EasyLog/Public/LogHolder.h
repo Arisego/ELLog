@@ -2,6 +2,8 @@
 
 #pragma once
 
+#define EL_LOG(Format, ...) { LogHolder::getInstance().LogToFile(FString::Printf(Format, ##__VA_ARGS__));	}
+
 /**
  * SingleTon for Log
  */
