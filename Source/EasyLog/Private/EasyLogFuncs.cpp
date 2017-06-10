@@ -4,11 +4,6 @@
 #include "LogHolder.h"
 #include "EasyLogFuncs.h"
 
-void UEasyLogFuncs::SetFileNames()
-{
-
-}
-
 void UEasyLogFuncs::LogToFile(FString StringToLog)
 {
 	LogHolder::getInstance().LogToFile(StringToLog);

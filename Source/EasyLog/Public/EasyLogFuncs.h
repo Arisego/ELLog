@@ -14,10 +14,6 @@ class EASYLOG_API UEasyLogFuncs : public UBlueprintFunctionLibrary
 	GENERATED_BODY()
 
 public:
-	/** Set the out put file name/path */
-	UFUNCTION(BlueprintCallable, Category = "EasyLog")
-		static void SetFileNames();
-
 	/**
 	 *	Log the string to file.
 	 */
