@@ -1,6 +1,8 @@
 # UE4 EasyLoggingpp Plugin
 A wrap of easyloggingpp, so that you can use easyloggingpp in ue4.
 
+Notice: This plugin works on UE4.16, you need to change build rules to make it work for early version.
+
 Why not just use UE_LOG？Because we want to make things easy:
 
 * No need to bother with enable log in shipping mode

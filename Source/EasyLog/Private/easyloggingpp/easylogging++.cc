@@ -15,6 +15,7 @@
 //
 
 #include "easylogging++.h"
+#define ELPP_NO_DEFAULT_LOG_FILE
 
 #if defined(AUTO_INITIALIZE_EASYLOGGINGPP)
 INITIALIZE_EASYLOGGINGPP

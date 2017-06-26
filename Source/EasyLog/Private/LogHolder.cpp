@@ -6,11 +6,11 @@
 #include "EngineMinimal.h"
 #include "Paths.h"
 #include "PlatformFilemanager.h"
+#include "GenericPlatformFile.h"
 
 #include "AllowWindowsPlatformTypes.h"
 #include "easyloggingpp/easylogging++.h"
 #include "HideWindowsPlatformTypes.h"
-#include "GenericPlatformFile.h"
 
 INITIALIZE_EASYLOGGINGPP
 
