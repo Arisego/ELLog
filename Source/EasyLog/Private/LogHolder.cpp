@@ -26,7 +26,7 @@ namespace LogHolderNs
 /** Max size before the log file rotate */
 #define MAXLOGSIZE	"102400"
 
-FString LogHolder::LogPath = FPaths::GameDir()+ "logs/";
+FString LogHolder::LogPath = FPaths::ProjectDir()+ "logs/";
 FString LogHolder::LogName = el::base::utils::DateTime::getDateTime("%Y%M%d_%H%m%s_%g", &LogHolderNs::DefaultSubSecPre).c_str();
 
 LogHolder::LogHolder()
