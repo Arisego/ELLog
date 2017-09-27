@@ -6,4 +6,6 @@
 UElLogSettings::UElLogSettings(const FObjectInitializer& Initializer)
 	: Super(Initializer)
 {
+	LoggingPath.Path = "../../logs";
+	RotateSize = 102400;
 }

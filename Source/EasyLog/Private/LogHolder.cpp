@@ -31,6 +31,9 @@ FString LogHolder::LogName = el::base::utils::DateTime::getDateTime("%Y%M%d_%H%m
 
 LogHolder::LogHolder()
 {
+	const UElLogSettings* t_eSetting = GetDefault<UElLogSettings>();
+	LogPath = t_eSetting->LoggingPath.Path;
+
 	ReGenLogPath();
 
 	el::Configurations defaultConf;
@@ -40,9 +43,9 @@ LogHolder::LogHolder()
 	defaultConf.set(el::Level::Global,
 		el::ConfigurationType::Format, "%datetime %level %msg");
 	defaultConf.set(el::Level::Global,
-		el::ConfigurationType::Filename, TCHAR_TO_ANSI(*(LogPath+ LogName + ".log")));
+		el::ConfigurationType::Filename, TCHAR_TO_ANSI(*((LogPath / LogName) + ".log")));
 	defaultConf.set(el::Level::Global,
-		el::ConfigurationType::MaxLogFileSize, MAXLOGSIZE);
+		el::ConfigurationType::MaxLogFileSize, TCHAR_TO_ANSI(*FString::FromInt(t_eSetting->RotateSize)));
 
 	// default logger uses default configurations
 	el::Loggers::reconfigureLogger("default", defaultConf);
@@ -50,7 +53,7 @@ LogHolder::LogHolder()
 	el::Helpers::installPreRollOutCallback(LogHolderNs::rolloutHandler);
 
 	LOG(INFO) << "[LogHolder] LogHolder(): Construct";
-	UE_LOG(LogTemp, Log, TEXT("[LogHolder] LogHolder(): Construct with path: %s£¬ %s"), *LogPath, *LogName);
+	UE_LOG(LogTemp, Log, TEXT("[LogHolder] LogHolder(): Construct with path: %s"), *(LogPath / LogName));
 }
 
 LogHolder::~LogHolder()
@@ -70,7 +73,7 @@ void LogHolder::OnRotate(const FString& OldFile, std::size_t FileSize)
 	static int idx = 0;
 
 	UE_LOG(LogTemp, Log, TEXT("[LogHolder] LogHolder(): Log file roll: %s, %d reached"), *OldFile, FileSize);
-	FPlatformFileManager::Get().GetPlatformFile().MoveFile(*(LogPath + LogName + "_" + FString::FromInt(idx++) + "_.log"), *OldFile);
+	FPlatformFileManager::Get().GetPlatformFile().MoveFile(*((LogPath / LogName) + "_" + FString::FromInt(idx++) + "_.log"), *OldFile);
 }
 
 void LogHolder::ReGenLogPath()
