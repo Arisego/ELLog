@@ -5,7 +5,8 @@
 
 UElLogSettings::UElLogSettings(const FObjectInitializer& Initializer)
 	: Super(Initializer)
+	, RotateSize(102400)
+	, KeepLogDays(3.0f)
 {
 	LoggingPath.Path = "../../logs";
-	RotateSize = 102400;
 }

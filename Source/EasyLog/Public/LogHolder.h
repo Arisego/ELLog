@@ -20,11 +20,17 @@ private:
 	static FString LogPath;
 	static FString LogName;
 
+	/** <How long should log file should keep before deleted */
+	static float KeepLogDays;
+
 private:
 	LogHolder();
 
 	/** Check and Generate Log path */
 	static void ReGenLogPath();
+
+	/** Remove old log files */
+	static void Clean_LogFile();
 
 public:
 	LogHolder(LogHolder const&) = delete;

@@ -21,7 +21,11 @@ public:
 	FDirectoryPath LoggingPath;
 
 	/** Log file rotate size */
-	UPROPERTY(config, EditAnywhere, Category = "Setting", meta = (DisplayName = "Logging path", defaultValue = 102400, ClampMin = 1024))
+	UPROPERTY(config, EditAnywhere, Category = "Setting", meta = (DisplayName = "Log Rotate Size", defaultValue = 102400, ClampMin = 1024))
 	int32 RotateSize;
+
+	/**	Time of day log file should be keep	*/
+	UPROPERTY(config, EditAnywhere, Category = "Setting", meta = (DisplayName = "Log Keep Days", defaultValue = 3.0f, ClampMin = 0.001f))
+	float KeepLogDays;
 
 };
