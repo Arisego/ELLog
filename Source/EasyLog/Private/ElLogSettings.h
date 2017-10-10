@@ -3,15 +3,17 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Engine/DeveloperSettings.h"
+#include "NoExportTypes.h"
+#include "ObjectMacros.h"
 #include "Engine/EngineTypes.h"
 #include "ElLogSettings.generated.h"
+
 
 /**
  * Settings for ElLog Plugin
  */
 UCLASS(config = ElLog, defaultconfig, meta = (DisplayName = "ElLog"))
-class UElLogSettings : public UDeveloperSettings
+class EASYLOG_API UElLogSettings : public UObject
 {
 	GENERATED_UCLASS_BODY()
 	

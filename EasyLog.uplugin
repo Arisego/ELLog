@@ -9,7 +9,7 @@
 	"CreatedByURL": "http://blog.ch-wind.com/",
 	"DocsURL": "",
 	"MarketplaceURL": "",
-	"SupportURL": "",
+	"SupportURL": "https://github.com/steinkrausls/ELLog/issues",
 	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"Installed": false,
