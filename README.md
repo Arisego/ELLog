@@ -1,7 +1,7 @@
 # UE4 EasyLoggingpp Plugin
 A wrap of easyloggingpp, so that you can use easyloggingpp in ue4.
 
-Notice: This plugin works on UE4.16, you need to change build rules to make it work for early version.
+Target Unreal Engine Version 4.18
 
 Why not just use UE_LOG？Because we want to make things easy:
 
