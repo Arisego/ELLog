@@ -1,9 +1,12 @@
 // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
 
 #include "EasyLog.h"
-#include "ISettingsModule.h"
 #include "ElLogSettings.h"
 #include "CoreDelegates.h"
+
+#if WITH_EDITOR
+#include "ISettingsModule.h"
+#endif
 
 #define LOCTEXT_NAMESPACE "FEasyLogModule"
 
@@ -11,6 +14,7 @@ namespace NS_ELLOG
 {
 	void RegisterSettings()
 	{
+#if WITH_EDITOR
 		UE_LOG(LogTemp,Log,TEXT("[NS_ELLOG] RegisterSettings()"));
 		if (ISettingsModule* SettingsModule = FModuleManager::GetModulePtr<ISettingsModule>("Settings"))
 		{
@@ -20,14 +24,17 @@ namespace NS_ELLOG
 				GetMutableDefault<UElLogSettings>());
 			UE_LOG(LogTemp, Log, TEXT("[NS_ELLOG] RegisterSettings(): Stp"));
 		}
+#endif
 	}
 
 	void UnregisterSettings()
 	{
+#if WITH_EDITOR
 		if (ISettingsModule* SettingsModule = FModuleManager::GetModulePtr<ISettingsModule>("Settings"))
 		{
 			SettingsModule->UnregisterSettings("Project", "Plugins", "ELLog");
 		}
+#endif
 	}
 };
 // This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
